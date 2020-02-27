@@ -10,6 +10,7 @@ import Prism from 'prismjs'
 import content from '@/components/content'
 //引入marked
 const marked = require('marked')
+
 export default {
   components: {
     'my-content': content
@@ -25,6 +26,7 @@ export default {
     this.md = marked(test)
     this.$nextTick(() => {
       $('#content code').map(function() {
+        console.log(this)
         Prism.highlightElement(this)
       })
     })
