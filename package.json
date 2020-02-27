@@ -7,10 +7,15 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "jquery": "^3.4.1",
+    "markdown-loader": "^5.1.0",
+    "marked": "^0.8.0",
+    "prismjs": "^1.19.0",
     "vue": "^2.6.11"
   },
   "devDependencies": {
     "@vue/cli-service": "^4.2.0",
+    "html-loader": "^0.5.5",
     "vue-template-compiler": "^2.6.11"
   }
 }

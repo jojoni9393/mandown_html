@@ -1,28 +1,33 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <my-content>
+    <div v-html="md"></div>
+  </my-content>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import test from './test.md'
+import Prism from 'prismjs'
+import content from '@/components/content'
+//引入marked
+const marked = require('marked')
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    'my-content': content
+  },
+  data() {
+    return {
+      md: ''
+    }
+  },
+  created() {
+    // 调用marked函数，传入markdown格式的内容，返回一段html
+    let md = marked(test)
+    this.md = marked(test)
+    this.$nextTick(() => {
+      $('#content code').map(function() {
+        Prism.highlightElement(this)
+      })
+    })
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
