@@ -1,6 +1,5 @@
 <template>
   <my-content>
-    <h2>2</h2>
     <div v-html="md"></div>
   </my-content>
 </template>
