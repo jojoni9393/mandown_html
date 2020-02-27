@@ -433,7 +433,6 @@ export default {
   created() {
     // 调用marked函数，传入markdown格式的内容，返回一段html
     let md = marked(test)
-
     this.md = marked(test)
     this.$nextTick(() => {
       $('#content code').map(function() {
