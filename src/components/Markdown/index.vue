@@ -1,12 +1,33 @@
 <template>
   <div id="content">
-    <slot></slot>
+    <div v-html="md"></div>
   </div>
 </template>
+<script>
+import Prism from 'prismjs'
+//引入marked
+const marked = require('marked')
 
+export default {
+  created() {
+    // 调用marked函数，传入markdown格式的内容，返回一段html
+    let mdFile = this.mdFile
+    let md = marked(mdFile)
+    this.md = marked(mdFile)
+    this.$nextTick(() => {
+      $('#content code').map(function() {
+        Prism.highlightElement(this)
+      })
+    })
+  },
+  props: {
+    mdFile: {}
+  }
+}
+</script>
 <style>
 #content {
-  width: 580px;
+  width: 100%;
   padding-left: 330px;
   padding-top: 10px;
   padding-bottom: 150px;

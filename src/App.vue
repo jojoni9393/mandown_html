@@ -1,35 +1,18 @@
 <template>
-  <my-content>
-    <div v-html="md"></div>
-  </my-content>
+  <my-markdown :mdFile="test"></my-markdown>
 </template>
 
 <script>
-import test from './test.md'
-import Prism from 'prismjs'
-import content from '@/components/content'
-//引入marked
-const marked = require('marked')
-
+import test from './test1.md'
+import Markdown from '@/components/Markdown'
 export default {
   components: {
-    'my-content': content
+    'my-markdown': Markdown
   },
   data() {
     return {
-      md: ''
+      test
     }
-  },
-  created() {
-    // 调用marked函数，传入markdown格式的内容，返回一段html
-    let md = marked(test)
-    this.md = marked(test)
-    this.$nextTick(() => {
-      $('#content code').map(function() {
-        console.log(this)
-        Prism.highlightElement(this)
-      })
-    })
   }
 }
 </script>
