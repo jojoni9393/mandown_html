@@ -7,7 +7,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "markdown-loader": "^5.1.0",
     "marked": "^0.8.0",
     "prismjs": "^1.19.0",
